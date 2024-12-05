@@ -1,0 +1,175 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom, #87CEEB, #b5e3ff);
+    overflow: hidden;
+}
+
+.flower {
+    position: relative;
+    margin: 50px auto;
+    width: 200px;
+    height: 400px;
+    transform: translateY(50px);
+    animation: sway 5s infinite ease-in-out;
+}
+
+.dandelion {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.seeds {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: sway 4s infinite ease-in-out;
+}
+
+.seed {
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background: white;
+    transform-origin: center 50px;
+    left: 50%;
+    top: -37%;
+    margin-left: -1px;
+    margin-top: -30px;
+    z-index: 2;
+}
+
+/* Add floating seeds */
+.seed::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background: white;
+    top: -20px;
+    left: 0;
+    opacity: 0;
+    animation: falling 10s infinite linear;
+    animation-delay: calc(var(--delay) * 1s);
+}
+
+/* Position seeds in a circular pattern */
+.seed:nth-child(1) { transform: rotate(0deg) translateY(-15px); }
+.seed:nth-child(2) { transform: rotate(18deg) translateY(-15px); }
+.seed:nth-child(3) { transform: rotate(36deg) translateY(-15px); }
+.seed:nth-child(4) { transform: rotate(54deg) translateY(-15px); }
+.seed:nth-child(5) { transform: rotate(72deg) translateY(-15px); }
+.seed:nth-child(6) { transform: rotate(90deg) translateY(-15px); }
+.seed:nth-child(7) { transform: rotate(108deg) translateY(-15px); }
+.seed:nth-child(8) { transform: rotate(126deg) translateY(-15px); }
+.seed:nth-child(9) { transform: rotate(144deg) translateY(-15px); }
+.seed:nth-child(10) { transform: rotate(162deg) translateY(-15px); }
+.seed:nth-child(11) { transform: rotate(180deg) translateY(-15px); }
+.seed:nth-child(12) { transform: rotate(198deg) translateY(-15px); }
+.seed:nth-child(13) { transform: rotate(216deg) translateY(-15px); }
+.seed:nth-child(14) { transform: rotate(234deg) translateY(-15px); }
+.seed:nth-child(15) { transform: rotate(252deg) translateY(-15px); }
+.seed:nth-child(16) { transform: rotate(270deg) translateY(-15px); }
+.seed:nth-child(17) { transform: rotate(288deg) translateY(-15px); }
+.seed:nth-child(18) { transform: rotate(306deg) translateY(-15px); }
+.seed:nth-child(19) { transform: rotate(324deg) translateY(-15px); }
+.seed:nth-child(20) { transform: rotate(342deg) translateY(-15px); }
+
+/* Animation for swaying effect */
+@keyframes sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+@keyframes falling {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(0deg);
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(150px, 300px) rotate(720deg);
+    }
+}
+
+/* Add random delays for seeds */
+.seed:nth-child(1)::after { --delay: 0; }
+.seed:nth-child(2)::after { --delay: 1.5; }
+.seed:nth-child(3)::after { --delay: 3; }
+.seed:nth-child(4)::after { --delay: 4.5; }
+.seed:nth-child(5)::after { --delay: 6; }
+.seed:nth-child(6)::after { --delay: 0.5; }
+.seed:nth-child(7)::after { --delay: 2; }
+.seed:nth-child(8)::after { --delay: 3.5; }
+.seed:nth-child(9)::after { --delay: 5; }
+.seed:nth-child(10)::after { --delay: 6.5; }
+.seed:nth-child(11)::after { --delay: 1; }
+.seed:nth-child(12)::after { --delay: 2.5; }
+.seed:nth-child(13)::after { --delay: 4; }
+.seed:nth-child(14)::after { --delay: 5.5; }
+.seed:nth-child(15)::after { --delay: 7; }
+.seed:nth-child(16)::after { --delay: 0.75; }
+.seed:nth-child(17)::after { --delay: 2.25; }
+.seed:nth-child(18)::after { --delay: 3.75; }
+.seed:nth-child(19)::after { --delay: 5.25; }
+.seed:nth-child(20)::after { --delay: 6.75; }
+
+/* Enhance stem and leaves */
+.stem {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    width: 3px;
+    height: 250px;
+    background: linear-gradient(to right, #658a3a, #90b44b);
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.leaf {
+    position: absolute;
+    width: 60px;
+    height: 25px;
+    background: linear-gradient(to right, #658a3a, #90b44b);
+    border-radius: 100px 0;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.leaf-1 {
+    top: 120px;
+    left: 48%;
+    transform: rotate(-30deg);
+}
+
+.leaf-2 {
+    top: 180px;
+    left: 19%;
+    transform: rotate(30deg);
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: translateY(50px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(50px) rotate(3deg);
+    }
+}
+  
